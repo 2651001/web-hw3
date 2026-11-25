@@ -1,0 +1,206 @@
+/* style.css : 실습과제 #3 영화 보드 스타일 / 강동현(2651001) */
+
+:root {
+  --bg: #0b1120;
+  --panel: #162033;
+  --text: #f1f5f9;
+  --subtext: #94a3b8;
+  --line: #334155;
+  --accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header,
+main,
+footer {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 14px;
+  margin-bottom: 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.toolbar input[type="search"],
+.toolbar select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.toolbar fieldset {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.toolbar p {
+  margin: 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  position: relative;
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.card.no-poster .poster-fallback {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.rank {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(11, 17, 32, 0.9);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #475569;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.badge.hot {
+  background: #e11d48;
+}
+
+.info h3 {
+  margin: 10px 0 4px;
+  font-size: 1.05rem;
+}
+
+.year {
+  margin: 0 0 8px;
+  color: var(--subtext);
+  font-size: 0.9rem;
+}
+
+.like {
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  color: #bbb;
+  cursor: pointer;
+  padding: 0;
+}
+
+.like.liked {
+  color: crimson;
+}
+
+.state-empty {
+  display: none;
+  color: #fff;
+  padding: 24px 0;
+}
+
+.board.is-empty + .state-empty {
+  display: block;
+}
+
+dialog {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+  max-width: 540px;
+  width: calc(100% - 32px);
+  padding: 20px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#detailBody img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+#closeDetail {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #0b1120;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 32px;
+  border-top: 1px solid var(--line);
+  color: var(--subtext);
+  font-size: 0.9rem;
+}
